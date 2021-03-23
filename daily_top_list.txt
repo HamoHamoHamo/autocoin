@@ -895,3 +895,937 @@ KRW-PCI                            시가         고가  ...  range  target
 2021-03-18T09:00:00  2570.0000  2995.0000  ...  230.0  2880.0
 
 [1 rows x 8 columns]
+KRW-BTC                                시가             고가             저가             종가                   거래대금             거래량      range      target
+2021-03-18T09:00:00  68494000.0000  70204000.0000  66846000.0000  67139000.0000  779786032387.56846000  11432.45517689  1679000.0  68818000.0
+KRW-META                           시가        고가        저가        종가                   거래대금                  거래량  range  target
+2021-03-18T09:00:00  243.0000  299.0000  220.0000  256.0000  481489446533.27352010  1886732017.06676781   39.5   295.5
+KRW-CRO                           시가        고가        저가        종가                   거래대금                  거래량  range  target
+2021-03-18T09:00:00  225.0000  286.0000  223.0000  251.0000  399679111259.03222540  1569154509.32985767   31.5   282.5
+KRW-ADA                            시가         고가         저가         종가                   거래대금                 거래량  range  target
+2021-03-18T09:00:00  1600.0000  1720.0000  1425.0000  1435.0000  343745630850.59139325  215366291.89836346  147.5  1582.5
+KRW-CHZ                           시가        고가        저가        종가                   거래대금                 거래량  range  target
+2021-03-18T09:00:00  682.0000  786.0000  648.0000  742.0000  584037614305.98973268  808798911.98518492   69.0   811.0
+KRW-XRP                           시가        고가        저가        종가                   거래대금                 거래량  range  target
+2021-03-18T09:00:00  547.0000  575.0000  538.0000  545.0000  279729652471.38610827  505361636.76028890   18.5   563.5
+KRW-MED                          시가        고가       저가       종가                    거래대금                   거래량  range  target
+2021-03-18T09:00:00  57.0000  113.0000  51.3000  97.7000  1837245139830.41509750  20315143784.94617404  30.85   128.6
+KRW-MVL                          시가       고가       저가       종가                   거래대금                  거래량  range  target
+2021-03-18T09:00:00  38.8000  44.5000  33.5000  38.6000  278234091436.67102466  7339250685.38058525    5.5    44.1
+KRW-MBL                          시가       고가       저가       종가                   거래대금                   거래량  range  target
+2021-03-18T09:00:00  16.0000  23.5000  14.2000  20.8000  414005087178.38836605  21771850649.31315291   4.65    25.5
+KRW-PCI                            시가         고가         저가         종가                   거래대금                 거래량  range  target
+2021-03-18T09:00:00  2570.0000  2995.0000  2535.0000  2650.0000  324602925252.27314635  118407859.88256548  230.0  2880.0
+KRW-BTC                                시가             고가  ...      range      target
+2021-03-18T09:00:00  68494000.0000  70204000.0000  ...  1679000.0  68818000.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-18T09:00:00  243.0000  299.0000  ...  39.5  295.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-18T09:00:00  225.0000  286.0000  ...  31.5  282.5
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ...  range  target
+2021-03-18T09:00:00  1600.0000  1720.0000  ...  147.5  1582.5
+
+[1 rows x 8 columns]
+KRW-CHZ                           시가        고가  ... range target
+2021-03-18T09:00:00  682.0000  786.0000  ...  69.0  811.0
+
+[1 rows x 8 columns]
+KRW-XRP                           시가        고가  ... range target
+2021-03-18T09:00:00  547.0000  575.0000  ...  18.5  563.5
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-18T09:00:00  57.0000  113.0000  ...  30.85  128.6
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-18T09:00:00  38.8000  44.5000  ...   5.5   44.1
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-18T09:00:00  16.0000  23.5000  ...  4.65   25.5
+
+[1 rows x 8 columns]
+KRW-PCI                            시가         고가  ...  range  target
+2021-03-18T09:00:00  2570.0000  2995.0000  ...  230.0  2880.0
+
+[1 rows x 8 columns]
+KRW-BTC                                시가             고가  ...      range      target
+2021-03-18T09:00:00  68494000.0000  70204000.0000  ...  1679000.0  68818000.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-18T09:00:00  243.0000  299.0000  ...  39.5  295.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-18T09:00:00  225.0000  286.0000  ...  31.5  282.5
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ...  range  target
+2021-03-18T09:00:00  1600.0000  1720.0000  ...  147.5  1582.5
+
+[1 rows x 8 columns]
+KRW-CHZ                           시가        고가  ... range target
+2021-03-18T09:00:00  682.0000  786.0000  ...  69.0  811.0
+
+[1 rows x 8 columns]
+KRW-XRP                           시가        고가  ... range target
+2021-03-18T09:00:00  547.0000  575.0000  ...  18.5  563.5
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-18T09:00:00  57.0000  113.0000  ...  30.85  128.6
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-18T09:00:00  38.8000  44.5000  ...   5.5   44.1
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-18T09:00:00  16.0000  23.5000  ...  4.65   25.5
+
+[1 rows x 8 columns]
+KRW-PCI                            시가         고가  ...  range  target
+2021-03-18T09:00:00  2570.0000  2995.0000  ...  230.0  2880.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가       저가  ...                  거래량  range target
+2021-03-19T09:00:00  44.5000  85.0000  43.9000  ...  6833591690.19778850  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  257.0000  286.0000  240.0000  ...  796100094.74692565  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가       저가  ...                   거래량 range target
+2021-03-19T09:00:00  20.8000  30.4000  20.8000  ...  23297659121.91164662   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-XRP                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  545.0000  558.0000  534.0000  ...  334147731.82556543  12.0  557.0
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  278.0000  295.0000  261.0000  ...  547230478.87589988  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가      저가  ...                    거래량  range target
+2021-03-19T09:00:00  1.9100  2.9500  1.9000  ...  211460487337.66127901  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가        저가  ...                  거래량 range target
+2021-03-19T09:00:00  251.0000  297.0000  240.0000  ...  1009463921.09534279  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  346.0000  376.0000  330.0000  ...  535879378.17328594  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가        저가  ...                 거래량  range target
+2021-03-19T09:00:00  295.0000  504.0000  282.0000  ...  431803212.81291671  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가       저가  ...                  거래량  range target
+2021-03-19T09:00:00  97.7000  120.0000  89.5000  ...  7083941281.05459114  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가        저가  ...                  거래량 range target
+2021-03-19T09:00:00  139.0000  261.0000  131.0000  ...  1617338932.74889725  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가       저가  ...                  거래량 range target
+2021-03-19T09:00:00  38.6000  47.2000  37.0000  ...  6682043520.27421105   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가       저가  ...                  거래량 range target
+2021-03-19T09:00:00  32.0000  38.2000  28.7000  ...  6399407983.24575595  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가      저가  ...                    거래량 range target
+2021-03-19T09:00:00  4.3500  6.9800  4.3000  ...  190243334653.73355209  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가         저가  ...                거래량 range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  1380.0000  ...  96880227.45021062  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가        저가  ...                  거래량 range target
+2021-03-19T09:00:00  139.0000  261.0000  131.0000  ...  1617338932.74889725  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가       저가  ...                  거래량  range target
+2021-03-19T09:00:00  44.5000  85.0000  43.9000  ...  6833591690.19778850  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  278.0000  295.0000  261.0000  ...  547230478.87589988  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가         저가  ...                거래량 range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  1380.0000  ...  96880227.45021062  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가        저가  ...                  거래량 range target
+2021-03-19T09:00:00  251.0000  297.0000  240.0000  ...  1009463921.09534279  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-IQ                          시가       고가       저가  ...                  거래량 range target
+2021-03-19T09:00:00  30.2000  38.3000  28.5000  ...  4084109401.57580365   4.9   39.4
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가        저가  ...                 거래량  range target
+2021-03-19T09:00:00  295.0000  504.0000  282.0000  ...  431803212.81291671  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가       저가  ...                  거래량 range target
+2021-03-19T09:00:00  38.6000  47.2000  37.0000  ...  6682043520.27421105   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가       저가  ...                  거래량  range target
+2021-03-19T09:00:00  97.7000  120.0000  89.5000  ...  7083941281.05459114  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가      저가  ...                    거래량  range target
+2021-03-19T09:00:00  1.9100  2.9500  1.9000  ...  211460487337.66127901  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가      저가  ...                    거래량 range target
+2021-03-19T09:00:00  4.3500  6.9800  4.3000  ...  190243334653.73355209  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  257.0000  286.0000  240.0000  ...  796100094.74692565  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가       저가  ...                   거래량 range target
+2021-03-19T09:00:00  20.8000  30.4000  20.8000  ...  23297659121.91164662   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가        저가  ...                 거래량 range target
+2021-03-19T09:00:00  346.0000  376.0000  330.0000  ...  535879378.17328594  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가       저가  ...                  거래량 range target
+2021-03-19T09:00:00  32.0000  38.2000  28.7000  ...  6399407983.24575595  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가  ... range target
+2021-03-19T09:00:00  139.0000  261.0000  ...  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ...  range target
+2021-03-19T09:00:00  44.5000  85.0000  ...  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가  ... range target
+2021-03-19T09:00:00  278.0000  295.0000  ...  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ... range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  ...  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-19T09:00:00  251.0000  297.0000  ...  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-IQ                          시가       고가  ... range target
+2021-03-19T09:00:00  30.2000  38.3000  ...   4.9   39.4
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ...  range target
+2021-03-19T09:00:00  295.0000  504.0000  ...  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-19T09:00:00  38.6000  47.2000  ...   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-19T09:00:00  97.7000  120.0000  ...  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-19T09:00:00  1.9100  2.9500  ...  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ... range target
+2021-03-19T09:00:00  4.3500  6.9800  ...  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-19T09:00:00  257.0000  286.0000  ...  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-19T09:00:00  20.8000  30.4000  ...   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가  ... range target
+2021-03-19T09:00:00  346.0000  376.0000  ...  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-19T09:00:00  32.0000  38.2000  ...  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가  ... range target
+2021-03-19T09:00:00  139.0000  261.0000  ...  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ...  range target
+2021-03-19T09:00:00  44.5000  85.0000  ...  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가  ... range target
+2021-03-19T09:00:00  278.0000  295.0000  ...  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ... range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  ...  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-19T09:00:00  251.0000  297.0000  ...  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-IQ                          시가       고가  ... range target
+2021-03-19T09:00:00  30.2000  38.3000  ...   4.9   39.4
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ...  range target
+2021-03-19T09:00:00  295.0000  504.0000  ...  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-19T09:00:00  38.6000  47.2000  ...   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-19T09:00:00  97.7000  120.0000  ...  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-19T09:00:00  1.9100  2.9500  ...  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ... range target
+2021-03-19T09:00:00  4.3500  6.9800  ...  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-19T09:00:00  257.0000  286.0000  ...  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-19T09:00:00  20.8000  30.4000  ...   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가  ... range target
+2021-03-19T09:00:00  346.0000  376.0000  ...  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-19T09:00:00  32.0000  38.2000  ...  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가  ... range target
+2021-03-19T09:00:00  139.0000  261.0000  ...  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ...  range target
+2021-03-19T09:00:00  44.5000  85.0000  ...  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가  ... range target
+2021-03-19T09:00:00  278.0000  295.0000  ...  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ... range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  ...  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-19T09:00:00  251.0000  297.0000  ...  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-IQ                          시가       고가  ... range target
+2021-03-19T09:00:00  30.2000  38.3000  ...   4.9   39.4
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ...  range target
+2021-03-19T09:00:00  295.0000  504.0000  ...  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-19T09:00:00  38.6000  47.2000  ...   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-19T09:00:00  97.7000  120.0000  ...  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-19T09:00:00  1.9100  2.9500  ...  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ... range target
+2021-03-19T09:00:00  4.3500  6.9800  ...  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-19T09:00:00  257.0000  286.0000  ...  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-19T09:00:00  20.8000  30.4000  ...   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가  ... range target
+2021-03-19T09:00:00  346.0000  376.0000  ...  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-19T09:00:00  32.0000  38.2000  ...  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가  ... range target
+2021-03-19T09:00:00  139.0000  261.0000  ...  65.0  263.0
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ...  range target
+2021-03-19T09:00:00  44.5000  85.0000  ...  20.55   99.8
+
+[1 rows x 8 columns]
+KRW-ORBS                           시가        고가  ... range target
+2021-03-19T09:00:00  278.0000  295.0000  ...  17.0  304.0
+
+[1 rows x 8 columns]
+KRW-ADA                            시가         고가  ... range  target
+2021-03-19T09:00:00  1435.0000  1565.0000  ...  92.5  1607.5
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-19T09:00:00  251.0000  297.0000  ...  28.5  306.5
+
+[1 rows x 8 columns]
+KRW-IQ                          시가       고가  ... range target
+2021-03-19T09:00:00  30.2000  38.3000  ...   4.9   39.4
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ...  range target
+2021-03-19T09:00:00  295.0000  504.0000  ...  111.0  572.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-19T09:00:00  38.6000  47.2000  ...   5.1   51.9
+
+[1 rows x 8 columns]
+KRW-MED                          시가        고가  ...  range target
+2021-03-19T09:00:00  97.7000  120.0000  ...  15.25  119.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-19T09:00:00  1.9100  2.9500  ...  0.525    3.3
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ... range target
+2021-03-19T09:00:00  4.3500  6.9800  ...  1.34    8.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-19T09:00:00  257.0000  286.0000  ...  23.0  294.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-19T09:00:00  20.8000  30.4000  ...   4.8   30.6
+
+[1 rows x 8 columns]
+KRW-DKA                           시가        고가  ... range target
+2021-03-19T09:00:00  346.0000  376.0000  ...  23.0  372.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-19T09:00:00  32.0000  38.2000  ...  4.75   39.6
+
+[1 rows x 8 columns]
+KRW-CRO                           시가        고가  ... range target
+2021-03-20T09:00:00  278.0000  297.0000  ...  30.0  278.0
+
+[1 rows x 8 columns]
+KRW-MED                           시가        고가  ... range target
+2021-03-20T09:00:00  104.0000  129.0000  ...  18.5  120.5
+
+[1 rows x 8 columns]
+KRW-MFT                          시가       고가  ... range target
+2021-03-20T09:00:00  28.2000  40.2000  ...  6.05   36.8
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ... range target
+2021-03-20T09:00:00  6.6400  9.6900  ...  1.53    8.7
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-20T09:00:00  2.7600  4.8900  ...  1.065    4.5
+
+[1 rows x 8 columns]
+KRW-MOC                           시가        고가  ... range target
+2021-03-20T09:00:00  199.0000  329.0000  ...  69.5  305.5
+
+[1 rows x 8 columns]
+KRW-SC                          시가       고가  ... range target
+2021-03-20T09:00:00  29.3000  35.0000  ...  4.55   31.4
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ...  range target
+2021-03-20T09:00:00  46.7000  76.8000  ...  16.25   80.0
+
+[1 rows x 8 columns]
+KRW-JST                           시가        고가  ... range target
+2021-03-20T09:00:00  106.0000  143.0000  ...  18.5  134.5
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ... range target
+2021-03-20T09:00:00  79.2000  96.6000  ...  14.2   85.0
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-20T09:00:00  25.8000  32.2000  ...  4.55   29.0
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-20T09:00:00  271.0000  296.0000  ...  42.5  278.5
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-20T09:00:00  34.9000  42.5000  ...  8.45   41.0
+
+[1 rows x 8 columns]
+KRW-OBSR                          시가       고가  ... range target
+2021-03-20T09:00:00  34.2000  48.0000  ...  8.25   44.8
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-20T09:00:00  24.1000  40.7000  ...  8.35   38.6
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ...  range target
+2021-03-21T09:00:00  7.2100  8.9900  ...  0.995    9.6
+
+[1 rows x 8 columns]
+KRW-UPP                           시가        고가  ... range target
+2021-03-21T09:00:00  207.0000  396.0000  ...  99.5  489.5
+
+[1 rows x 8 columns]
+KRW-SPND                          시가       고가  ...  range target
+2021-03-21T09:00:00  76.0000  97.5000  ...  12.05  108.2
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ... range target
+2021-03-21T09:00:00  3.4400  4.5400  ...  0.63    4.9
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ... range target
+2021-03-21T09:00:00  70.8000  80.7000  ...   7.1   82.6
+
+[1 rows x 8 columns]
+KRW-AHT                          시가       고가  ... range target
+2021-03-21T09:00:00  25.4000  33.5000  ...   4.1   36.1
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-21T09:00:00  237.0000  285.0000  ...  31.0  316.0
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-21T09:00:00  32.5000  39.2000  ...  4.35   41.0
+
+[1 rows x 8 columns]
+KRW-MED                           시가        고가  ... range target
+2021-03-21T09:00:00  102.0000  111.0000  ...  7.05  117.0
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ... range target
+2021-03-21T09:00:00  445.0000  624.0000  ...  91.0  647.0
+
+[1 rows x 8 columns]
+KRW-AQT                             시가          고가  ...   range   target
+2021-03-21T09:00:00  10150.0000  15340.0000  ...  2600.0  17800.0
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-21T09:00:00  63.4000  70.7000  ...  5.55   72.1
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-21T09:00:00  24.6000  30.5000  ...   3.0   32.3
+
+[1 rows x 8 columns]
+KRW-IOST                          시가       고가  ... range target
+2021-03-21T09:00:00  78.2000  82.8000  ...  10.9   75.5
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ...  range target
+2021-03-21T09:00:00  7.2100  8.9900  ...  0.995    9.6
+
+[1 rows x 8 columns]
+KRW-UPP                           시가        고가  ... range target
+2021-03-21T09:00:00  207.0000  396.0000  ...  99.5    489
+
+[1 rows x 8 columns]
+KRW-SPND                          시가       고가  ...  range target
+2021-03-21T09:00:00  76.0000  97.5000  ...  12.05    108
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ... range target
+2021-03-21T09:00:00  3.4400  4.5400  ...  0.63    4.9
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ... range target
+2021-03-21T09:00:00  70.8000  80.7000  ...   7.1   82.6
+
+[1 rows x 8 columns]
+KRW-AHT                          시가       고가  ... range target
+2021-03-21T09:00:00  25.4000  33.5000  ...   4.1   36.1
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-21T09:00:00  237.0000  285.0000  ...  31.0    316
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-21T09:00:00  32.5000  39.2000  ...  4.35   41.0
+
+[1 rows x 8 columns]
+KRW-MED                           시가        고가  ... range target
+2021-03-21T09:00:00  102.0000  111.0000  ...  7.05    117
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ... range target
+2021-03-21T09:00:00  445.0000  624.0000  ...  91.0    647
+
+[1 rows x 8 columns]
+KRW-AQT                             시가          고가  ...   range target
+2021-03-21T09:00:00  10150.0000  15340.0000  ...  2600.0  17800
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-21T09:00:00  63.4000  70.7000  ...  5.55   72.1
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-21T09:00:00  24.6000  30.5000  ...   3.0   32.3
+
+[1 rows x 8 columns]
+KRW-IOST                          시가       고가  ... range target
+2021-03-21T09:00:00  78.2000  82.8000  ...  10.9   75.5
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ...  range target
+2021-03-21T09:00:00  7.2100  8.9900  ...  0.995    9.6
+
+[1 rows x 8 columns]
+KRW-UPP                           시가        고가  ... range target
+2021-03-21T09:00:00  207.0000  396.0000  ...  99.5    489
+
+[1 rows x 8 columns]
+KRW-SPND                          시가       고가  ...  range target
+2021-03-21T09:00:00  76.0000  97.5000  ...  12.05    108
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ... range target
+2021-03-21T09:00:00  3.4400  4.5400  ...  0.63    4.9
+
+[1 rows x 8 columns]
+KRW-STMX                          시가       고가  ... range target
+2021-03-21T09:00:00  70.8000  80.7000  ...   7.1   82.6
+
+[1 rows x 8 columns]
+KRW-AHT                          시가       고가  ... range target
+2021-03-21T09:00:00  25.4000  33.5000  ...   4.1   36.1
+
+[1 rows x 8 columns]
+KRW-META                           시가        고가  ... range target
+2021-03-21T09:00:00  237.0000  285.0000  ...  31.0    316
+
+[1 rows x 8 columns]
+KRW-CRE                          시가       고가  ... range target
+2021-03-21T09:00:00  32.5000  39.2000  ...  4.35   41.0
+
+[1 rows x 8 columns]
+KRW-MED                           시가        고가  ... range target
+2021-03-21T09:00:00  102.0000  111.0000  ...  7.05    117
+
+[1 rows x 8 columns]
+KRW-HUNT                           시가        고가  ... range target
+2021-03-21T09:00:00  445.0000  624.0000  ...  91.0    647
+
+[1 rows x 8 columns]
+KRW-AQT                             시가          고가  ...   range target
+2021-03-21T09:00:00  10150.0000  15340.0000  ...  2600.0  17800
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-21T09:00:00  63.4000  70.7000  ...  5.55   72.1
+
+[1 rows x 8 columns]
+KRW-MBL                          시가       고가  ... range target
+2021-03-21T09:00:00  24.6000  30.5000  ...   3.0   32.3
+
+[1 rows x 8 columns]
+KRW-IOST                          시가       고가  ... range target
+2021-03-21T09:00:00  78.2000  82.8000  ...  10.9   75.5
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-21T09:00:00  30.2000  46.0000  ...   7.9   51.9
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가        저가         종가                   거래대금                 거래량  range  target
+2021-03-22T09:00:00  985.0000  1800.0000  944.0000  1640.0000  936234471526.55904191  615244844.66399691  428.0    2068
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-MLK                           시가         고가  ...  range target
+2021-03-22T09:00:00  985.0000  1800.0000  ...  428.0   2068
+
+[1 rows x 8 columns]
+KRW-NPXS                         시가      고가  ...  range target
+2021-03-22T09:00:00  8.6100  8.8700  ...  0.685    8.7
+
+[1 rows x 8 columns]
+KRW-BORA                           시가        고가  ... range target
+2021-03-22T09:00:00  326.0000  426.0000  ...  58.5    479
+
+[1 rows x 8 columns]
+KRW-RFR                          시가       고가  ... range target
+2021-03-22T09:00:00  44.1000  50.8000  ...   7.9   45.1
+
+[1 rows x 8 columns]
+KRW-GAS                             시가          고가  ...   range target
+2021-03-22T09:00:00  14040.0000  18200.0000  ...  2350.0  17160
+
+[1 rows x 8 columns]
+KRW-BTT                         시가      고가  ...  range target
+2021-03-22T09:00:00  4.2700  4.4000  ...  0.295    4.2
+
+[1 rows x 8 columns]
+KRW-EDR                          시가       고가  ...  range target
+2021-03-22T09:00:00  74.1000  98.6000  ...  14.55   98.1
+
+[1 rows x 8 columns]
+KRW-XEM                           시가        고가  ... range target
+2021-03-22T09:00:00  431.0000  477.0000  ...  32.5    456
+
+[1 rows x 8 columns]
+KRW-BTG                             시가          고가  ...   range target
+2021-03-22T09:00:00  34600.0000  45500.0000  ...  5750.0  41750
+
+[1 rows x 8 columns]
+KRW-BCHA                             시가          고가  ...    range target
+2021-03-22T09:00:00  21660.0000  42420.0000  ...  10450.0  41150
+
+[1 rows x 8 columns]
+KRW-STEEM                           시가        고가  ...  range target
+2021-03-22T09:00:00  660.0000  987.0000  ...  178.0   1026
+
+[1 rows x 8 columns]
+KRW-MVL                          시가       고가  ... range target
+2021-03-22T09:00:00  66.6000  67.3000  ...   5.9   62.7
+
+[1 rows x 8 columns]
+KRW-FCT2                           시가        고가  ... range target
+2021-03-22T09:00:00  241.0000  336.0000  ...  57.5    357
+
+[1 rows x 8 columns]
+KRW-UPP                           시가        고가  ... range target
+2021-03-22T09:00:00  390.0000  475.0000  ...  79.0    420
+
+[1 rows x 8 columns]
+KRW-MED                           시가        고가  ... range target
+2021-03-22T09:00:00  110.0000  119.0000  ...  11.0    112
+
+[1 rows x 8 columns]

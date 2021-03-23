@@ -25,7 +25,7 @@ upbit = pyupbit.Upbit(access,secret)
 async def do_async_loop(ticker, target):
     #list_coin = []
     #list_coin.append(ticker)
-    update_time = '09:01'
+    update_time = '00:01'
     
     break_check = False
     money = 100000
@@ -47,17 +47,24 @@ async def do_async_loop(ticker, target):
                 my_json = data_rev.decode('utf8').replace("'", '"')
                 data = json.loads(my_json)
                 now_ticker = data['code']
-                print(data['code'], data['trade_time'], data['trade_price'])
+
+                if str(datetime.now())[15:16] == '0':
+                    print(data['code'], data['trade_time'], data['trade_price'])
+                
+                if str(datetime.now())[14:16] == '30':
+                    text = "연결확인\n" + str(buy_check)
+                    checking_message = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
+                    checking_message.start()
                 
 
                 # 현재가가 목표가가 되면 매수 주문 넣고 매시지 보내기
                 if target[now_ticker] == data['trade_price'] and buy_check[now_ticker] == True:
-                    count = int(money/int(target[now_ticker]))
+                    count = float(money/int(target[now_ticker]))
                     ret = upbit.buy_limit_order(now_ticker, target[now_ticker], count)
-                    print("주문완료\n",ret)
-                    print(ret)
+                    print("주문완료\n",ret, count)
+
                     with open("buy_log.txt", "a", encoding='utf8') as f:
-                        text = str(datetime.now()) + str(ret) + "\n"
+                        text = "\n" + str(datetime.now()) + str(ret)
                         f.write(text)
 
                     buy_check[now_ticker] = False
@@ -94,7 +101,8 @@ async def do_async_loop(ticker, target):
     return ticker + "END"
 
 async def sell_all():
-    sell_time = '09:00'
+    # 우리나라 시간은  +9시간 해야됨
+    sell_time = '00:00'
     sell_check = True
     percent = 1
 
@@ -214,7 +222,6 @@ for i in range(len(buy_list[2])):
     target_list[buy_list[1][i]] = (float(buy_list[2][i]['target']))
 
 #print("==================================\n", target_list['KRW-ETH'])
-
 
 
 asyncio.get_event_loop().run_until_complete(trading_main(buy_list, True, target_list))

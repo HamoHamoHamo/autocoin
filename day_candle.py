@@ -4,30 +4,36 @@ import os
 import pyupbit
 import threading
 import time
+import pandas as pd
 from pandas import Series, DataFrame
 from datetime import timedelta, datetime, date
 from telegrambot import send_log, send_message
 
 check=False
 now=datetime.now()
-count = 10
+#pd.set_option('display.max_columns', None) ## 모든 열을 출력한다.
+
+count = 15
 buy_ticker =  [0 for i in range(count)]
 buy_price =  [0 for i in range(count)]
 ticker_data =  [0 for i in range(count)]
 
-tickers_list = ('KRW-BTC', 'KRW-ETH', 'KRW-NEO', 'KRW-MTL', 'KRW-LTC', 'KRW-XRP', 'KRW-ETC', 'KRW-OMG', 'KRW-SNT', 'KRW-WAVES', 'KRW-XEM', 'KRW-QTUM', 'KRW-LSK', 'KRW-STEEM', 'KRW-XLM', 'KRW-ARDR', 'KRW-KMD', 'KRW-ARK', 'KRW-STORJ', 'KRW-GRS', 'KRW-REP', 'KRW-EMC2', 'KRW-ADA', 'KRW-SBD', 'KRW-POWR', 'KRW-BTG', 'KRW-ICX', 'KRW-EOS', 'KRW-TRX', 'KRW-SC', 'KRW-IGNIS', 'KRW-ONT', 'KRW-ZIL', 'KRW-POLY', 'KRW-ZRX', 'KRW-SRN', 'KRW-LOOM', 'KRW-BCH', 'KRW-ADX', 'KRW-BAT', 'KRW-IOST', 'KRW-DMT', 'KRW-RFR', 'KRW-CVC', 'KRW-IQ', 'KRW-IOTA', 'KRW-MFT', 'KRW-ONG', 'KRW-GAS', 'KRW-UPP', 'KRW-ELF', 'KRW-KNC', 'KRW-BSV', 'KRW-THETA', 'KRW-EDR', 'KRW-QKC', 'KRW-BTT', 'KRW-MOC', 'KRW-ENJ', 'KRW-TFUEL', 'KRW-MANA', 'KRW-ANKR', 'KRW-NPXS', 'KRW-AERGO', 'KRW-ATOM', 'KRW-TT', 'KRW-CRE', 'KRW-SOLVE', 'KRW-MBL', 'KRW-TSHP', 'KRW-WAXP', 'KRW-HBAR', 'KRW-MED', 'KRW-MLK', 'KRW-STPT', 'KRW-ORBS', 'KRW-VET', 'KRW-CHZ', 'KRW-PXL', 'KRW-STMX', 'KRW-DKA', 'KRW-HIVE', 'KRW-KAVA', 'KRW-AHT', 'KRW-SPND', 'KRW-LINK', 'KRW-XTZ', 'KRW-BORA', 'KRW-JST', 'KRW-CRO', 'KRW-TON', 'KRW-SXP', 'KRW-LAMB', 'KRW-HUNT', 'KRW-MARO', 'KRW-PLA', 'KRW-DOT', 'KRW-SRM', 'KRW-MVL', 'KRW-PCI', 'KRW-STRAX', 'KRW-AQT', 'KRW-BCHA', 'KRW-GLM', 'KRW-QTCON', 'KRW-SSX', 'KRW-META', 'KRW-OBSR', 'KRW-FCT2', 'KRW-LBC', 'KRW-CBK', 'KRW-SAND', 'KRW-HUM', 'KRW-DOGE')
+#'KRW-BTC', 'KRW-ETH', 'KRW-CHZ', 'KRW-XRP', 티커 목록 제외
+tickers_list = ('KRW-NEO', 'KRW-MTL', 'KRW-LTC', 'KRW-ETC', 'KRW-OMG', 'KRW-SNT', 'KRW-WAVES', 'KRW-XEM', 'KRW-QTUM', 'KRW-LSK', 'KRW-STEEM', 'KRW-XLM', 'KRW-ARDR', 'KRW-KMD', 'KRW-ARK', 'KRW-STORJ', 'KRW-GRS', 'KRW-REP', 'KRW-EMC2', 'KRW-ADA', 'KRW-SBD', 'KRW-POWR', 'KRW-BTG', 'KRW-ICX', 'KRW-EOS', 'KRW-TRX', 'KRW-SC', 'KRW-IGNIS', 'KRW-ONT', 'KRW-ZIL', 'KRW-POLY', 'KRW-ZRX', 'KRW-SRN', 'KRW-LOOM', 'KRW-BCH', 'KRW-ADX', 'KRW-BAT', 'KRW-IOST', 'KRW-DMT', 'KRW-RFR', 'KRW-CVC', 'KRW-IQ', 'KRW-IOTA', 'KRW-MFT', 'KRW-ONG', 'KRW-GAS', 'KRW-UPP', 'KRW-ELF', 'KRW-KNC', 'KRW-BSV', 'KRW-THETA', 'KRW-EDR', 'KRW-QKC', 'KRW-BTT', 'KRW-MOC', 'KRW-ENJ', 'KRW-TFUEL', 'KRW-MANA', 'KRW-ANKR', 'KRW-NPXS', 'KRW-AERGO', 'KRW-ATOM', 'KRW-TT', 'KRW-CRE', 'KRW-SOLVE', 'KRW-MBL', 'KRW-TSHP', 'KRW-WAXP', 'KRW-HBAR', 'KRW-MED', 'KRW-MLK', 'KRW-STPT', 'KRW-ORBS', 'KRW-VET', 'KRW-PXL', 'KRW-STMX', 'KRW-DKA', 'KRW-HIVE', 'KRW-KAVA', 'KRW-AHT', 'KRW-SPND', 'KRW-LINK', 'KRW-XTZ', 'KRW-BORA', 'KRW-JST', 'KRW-CRO', 'KRW-TON', 'KRW-SXP', 'KRW-LAMB', 'KRW-HUNT', 'KRW-MARO', 'KRW-PLA', 'KRW-DOT', 'KRW-SRM', 'KRW-MVL', 'KRW-PCI', 'KRW-STRAX', 'KRW-AQT', 'KRW-BCHA', 'KRW-GLM', 'KRW-QTCON', 'KRW-SSX', 'KRW-META', 'KRW-OBSR', 'KRW-FCT2', 'KRW-LBC', 'KRW-CBK', 'KRW-SAND', 'KRW-HUM', 'KRW-DOGE')
 #tickers_list = ('KRW-MBL', 'KRW-MVL', 'KRW-DKA', 'KRW-XRP', 'KRW-CRO', 'KRW-META', 'KRW-PCI', 'KRW-ADA', 'KRW-CHZ', 'KRW-MED')
 
 
 def get_top_price():
     check=True
+    today = str(datetime.now())[:10]
+
     #if now.hour == 9 and now.minute == 0:
     if check == True:
         for ticker in tickers_list:
             url = "https://api.upbit.com/v1/candles/days"
 
             #querystring = {"market":ticker,"to":"{0} 00:00:00".format(str(datetime.now()+timedelta(days=1))[:10]),"count":"1"}
-            querystring = {"market":ticker,"to":"{0} 00:00:00".format(str(datetime.now())[:10]),"count":"1"}
+            querystring = {"market":ticker,"to":"{0} 00:00:00".format(today),"count":"1"}
             #querystring = {"market":ticker,"to":"2021-03-17 00:00:00","count":"1"}
             #print(querystring)
             response = requests.request("GET", url, params=querystring)
@@ -110,9 +116,15 @@ def get_top_price():
                     '거래대금' : price,
                     '거래량' : volume,
                     }
+            
             df = DataFrame(data, index=candle_time)
             df['range'] = (float(df['고가']) - float(df['저가'])) * 0.5
-            df['target'] = round(float(df['종가']) + df['range'],1)
+            
+            target_price = round(float(df['종가']) + float(df['range']), 1)
+            # 목표가가 100 이상이면 정수형으로 변환
+            if target_price >= float(100):
+                target_price = int(target_price)
+            df['target'] = target_price
 
             # txt파일에 저장
             log_list = [ticker, df]
@@ -133,7 +145,7 @@ def get_top_price():
                 ticker_data[num] = df
             print("buy_price", buy_price)
             print("buy_ticker", buy_ticker)
-            time.sleep(0.1)
+            time.sleep(0.2)
 
         #print(buy_ticker, buy_price)
     buy_list = [buy_price, buy_ticker, ticker_data]
@@ -145,7 +157,7 @@ def get_top_price():
 
 
     print("===========종목 업데이트 완료===========\n\n\n\n\n")
-    
+    send_message("감시 시작",)
     return buy_list
 
 
