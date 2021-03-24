@@ -13,15 +13,15 @@ check=False
 now=datetime.now()
 #pd.set_option('display.max_columns', None) ## 모든 열을 출력한다.
 
-count = 15
-buy_ticker =  [0 for i in range(count)]
-buy_price =  [0 for i in range(count)]
-ticker_data =  [0 for i in range(count)]
 
 #'KRW-BTC', 'KRW-ETH', 'KRW-CHZ', 'KRW-XRP', 티커 목록 제외
-tickers_list = ('KRW-NEO', 'KRW-MTL', 'KRW-LTC', 'KRW-ETC', 'KRW-OMG', 'KRW-SNT', 'KRW-WAVES', 'KRW-XEM', 'KRW-QTUM', 'KRW-LSK', 'KRW-STEEM', 'KRW-XLM', 'KRW-ARDR', 'KRW-KMD', 'KRW-ARK', 'KRW-STORJ', 'KRW-GRS', 'KRW-REP', 'KRW-EMC2', 'KRW-ADA', 'KRW-SBD', 'KRW-POWR', 'KRW-BTG', 'KRW-ICX', 'KRW-EOS', 'KRW-TRX', 'KRW-SC', 'KRW-IGNIS', 'KRW-ONT', 'KRW-ZIL', 'KRW-POLY', 'KRW-ZRX', 'KRW-SRN', 'KRW-LOOM', 'KRW-BCH', 'KRW-ADX', 'KRW-BAT', 'KRW-IOST', 'KRW-DMT', 'KRW-RFR', 'KRW-CVC', 'KRW-IQ', 'KRW-IOTA', 'KRW-MFT', 'KRW-ONG', 'KRW-GAS', 'KRW-UPP', 'KRW-ELF', 'KRW-KNC', 'KRW-BSV', 'KRW-THETA', 'KRW-EDR', 'KRW-QKC', 'KRW-BTT', 'KRW-MOC', 'KRW-ENJ', 'KRW-TFUEL', 'KRW-MANA', 'KRW-ANKR', 'KRW-NPXS', 'KRW-AERGO', 'KRW-ATOM', 'KRW-TT', 'KRW-CRE', 'KRW-SOLVE', 'KRW-MBL', 'KRW-TSHP', 'KRW-WAXP', 'KRW-HBAR', 'KRW-MED', 'KRW-MLK', 'KRW-STPT', 'KRW-ORBS', 'KRW-VET', 'KRW-PXL', 'KRW-STMX', 'KRW-DKA', 'KRW-HIVE', 'KRW-KAVA', 'KRW-AHT', 'KRW-SPND', 'KRW-LINK', 'KRW-XTZ', 'KRW-BORA', 'KRW-JST', 'KRW-CRO', 'KRW-TON', 'KRW-SXP', 'KRW-LAMB', 'KRW-HUNT', 'KRW-MARO', 'KRW-PLA', 'KRW-DOT', 'KRW-SRM', 'KRW-MVL', 'KRW-PCI', 'KRW-STRAX', 'KRW-AQT', 'KRW-BCHA', 'KRW-GLM', 'KRW-QTCON', 'KRW-SSX', 'KRW-META', 'KRW-OBSR', 'KRW-FCT2', 'KRW-LBC', 'KRW-CBK', 'KRW-SAND', 'KRW-HUM', 'KRW-DOGE')
+tickers_list = ('KRW-BTC', 'KRW-ETH', 'KRW-NEO', 'KRW-MTL', 'KRW-LTC', 'KRW-XRP', 'KRW-ETC', 'KRW-OMG', 'KRW-SNT', 'KRW-WAVES', 'KRW-XEM', 'KRW-QTUM', 'KRW-LSK', 'KRW-STEEM', 'KRW-XLM', 'KRW-ARDR', 'KRW-KMD', 'KRW-ARK', 'KRW-STORJ', 'KRW-GRS', 'KRW-REP', 'KRW-EMC2', 'KRW-ADA', 'KRW-SBD', 'KRW-POWR', 'KRW-BTG', 'KRW-ICX', 'KRW-EOS', 'KRW-TRX', 'KRW-SC', 'KRW-IGNIS', 'KRW-ONT', 'KRW-ZIL', 'KRW-POLY', 'KRW-ZRX', 'KRW-SRN', 'KRW-LOOM', 'KRW-BCH', 'KRW-ADX', 'KRW-BAT', 'KRW-IOST', 'KRW-DMT', 'KRW-RFR', 'KRW-CVC', 'KRW-IQ', 'KRW-IOTA', 'KRW-MFT', 'KRW-ONG', 'KRW-GAS', 'KRW-UPP', 'KRW-ELF', 'KRW-KNC', 'KRW-BSV', 'KRW-THETA', 'KRW-EDR', 'KRW-QKC', 'KRW-BTT', 'KRW-MOC', 'KRW-ENJ', 'KRW-TFUEL', 'KRW-MANA', 'KRW-ANKR', 'KRW-NPXS', 'KRW-AERGO', 'KRW-ATOM', 'KRW-TT', 'KRW-CRE', 'KRW-SOLVE', 'KRW-MBL', 'KRW-TSHP', 'KRW-WAXP', 'KRW-HBAR', 'KRW-MED', 'KRW-MLK', 'KRW-STPT', 'KRW-ORBS', 'KRW-VET', 'KRW-CHZ', 'KRW-PXL', 'KRW-STMX', 'KRW-DKA', 'KRW-HIVE', 'KRW-KAVA', 'KRW-AHT', 'KRW-SPND', 'KRW-LINK', 'KRW-XTZ', 'KRW-BORA', 'KRW-JST', 'KRW-CRO', 'KRW-TON', 'KRW-SXP', 'KRW-LAMB', 'KRW-HUNT', 'KRW-MARO', 'KRW-PLA', 'KRW-DOT', 'KRW-SRM', 'KRW-MVL', 'KRW-PCI', 'KRW-STRAX', 'KRW-AQT', 'KRW-BCHA', 'KRW-GLM', 'KRW-QTCON', 'KRW-SSX', 'KRW-META', 'KRW-OBSR', 'KRW-FCT2', 'KRW-LBC', 'KRW-CBK', 'KRW-SAND', 'KRW-HUM', 'KRW-DOGE')
 #tickers_list = ('KRW-MBL', 'KRW-MVL', 'KRW-DKA', 'KRW-XRP', 'KRW-CRO', 'KRW-META', 'KRW-PCI', 'KRW-ADA', 'KRW-CHZ', 'KRW-MED')
 
+count = len(tickers_list)
+buy_ticker =  []
+#buy_price =  []
+ticker_data =  []
 
 def get_top_price():
     check=True
@@ -131,24 +131,27 @@ def get_top_price():
             save_log(log_list)
 
             # 텔레그램으로 로그 전송
-            #t = threading.Thread(target=send_telgm_log, args=(log_list,)) # 스레드 생성
-            #t.start()
+            t = threading.Thread(target=send_telgm_log, args=(log_list,)) # 스레드 생성
+            t.start()
 
+            '''
             min_price = min(buy_price)
             pr = float(data['거래대금'][0])
             pr = int(pr)
-
             if min_price < pr:
                 num = buy_price.index(min_price)
                 buy_price[num] = pr
                 buy_ticker[num] = ticker
                 ticker_data[num] = df
             print("buy_price", buy_price)
+            '''
             print("buy_ticker", buy_ticker)
-            time.sleep(0.2)
+            buy_ticker.append(ticker)
+            ticker_data.append(df)
+            time.sleep(0.1)
 
         #print(buy_ticker, buy_price)
-    buy_list = [buy_price, buy_ticker, ticker_data]
+    buy_list = [buy_ticker, ticker_data]
 
     # 거래대금 상위 종목 저장 및 텔레그램 메시지 전송
     t2 = threading.Thread(target=save_buy_list, args=(buy_list,)) # 스레드 생성
@@ -161,7 +164,7 @@ def get_top_price():
     return buy_list
 
 
-def save_buy_list(get_list):    
+def save_buy_list(get_list):
     # "a"는 현재내용에 추가 "w"는 새로 작성
     with open("daily_top_list.txt", "a", encoding='utf8') as f:
         for cnt in range(count):

@@ -28,7 +28,10 @@ async def do_async_loop(ticker, target):
     update_time = '00:01'
     
     break_check = False
+    connect_check = False
+
     money = 100000
+    
     #count = int(money/target)
     # buy_check['티커'] = True 로 초기값 넣어주기
     buy_check = {}
@@ -51,10 +54,13 @@ async def do_async_loop(ticker, target):
                 if str(datetime.now())[15:16] == '0':
                     print(data['code'], data['trade_time'], data['trade_price'])
                 
-                if str(datetime.now())[14:16] == '30':
+                if str(datetime.now())[14:16] != '30':
+                    connect_check = True
+                if str(datetime.now())[14:16] == '30' and connect_check == True:
                     text = "연결확인\n" + str(buy_check)
                     checking_message = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
                     checking_message.start()
+                    connect_check = False
                 
 
                 # 현재가가 목표가가 되면 매수 주문 넣고 매시지 보내기
@@ -166,7 +172,7 @@ async def sell_all():
 async def trading_main(trading_coins, run_check, target):
     while(run_check):
         print("================================START================================")
-        loop1 = do_async_loop(trading_coins[1], target)
+        loop1 = do_async_loop(trading_coins[0], target)
         #loop2 = do_async_loop(trading_coins[1][1], target[1])
         #loop3 = do_async_loop(trading_coins[1][2], target[2])
         #loop4 = do_async_loop(trading_coins[1][3], target[3])
@@ -218,8 +224,8 @@ target_list = {}
 buy_list = get_top_price()
 #buy_list = [[470853572636, 649622744160, 2307348519849, 941919650445, 838187329117], ['KRW-META', 'KRW-CHZ', 'KRW-STMX', 'KRW-DKA', 'KRW-MVL']]
 
-for i in range(len(buy_list[2])):
-    target_list[buy_list[1][i]] = (float(buy_list[2][i]['target']))
+for i in range(len(buy_list[1])):
+    target_list[buy_list[0][i]] = (float(buy_list[1][i]['target']))
 
 #print("==================================\n", target_list['KRW-ETH'])
 
