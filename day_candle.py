@@ -9,8 +9,8 @@ from pandas import Series, DataFrame
 from datetime import timedelta, datetime, date
 from telegrambot import send_log, send_message
 
-check=False
-now=datetime.now()
+
+
 #pd.set_option('display.max_columns', None) ## 모든 열을 출력한다.
 
 
@@ -24,134 +24,150 @@ buy_ticker =  []
 ticker_data =  []
 
 def get_top_price():
-    check=True
-    today = str(datetime.now())[:10]
+    now=datetime.now()
+    
+    today = str(now)[:10]
 
-    #if now.hour == 9 and now.minute == 0:
-    if check == True:
-        for ticker in tickers_list:
-            url = "https://api.upbit.com/v1/candles/days"
+    if now.hour >= 15:
+        today = str(now - timedelta(days=1))[:10]
 
-            #querystring = {"market":ticker,"to":"{0} 00:00:00".format(str(datetime.now()+timedelta(days=1))[:10]),"count":"1"}
-            querystring = {"market":ticker,"to":"{0} 00:00:00".format(today),"count":"1"}
-            #querystring = {"market":ticker,"to":"2021-03-17 00:00:00","count":"1"}
-            #print(querystring)
-            response = requests.request("GET", url, params=querystring)
-            #print(response.text)    
+    for ticker in tickers_list:
+        url = "https://api.upbit.com/v1/candles/days"
 
-            results = response.text.split('},')
-            #print(results)
-            r = []
+        #querystring = {"market":ticker,"to":"{0} 00:00:00".format(str(datetime.now()+timedelta(days=1))[:10]),"count":"1"}
+        querystring = {"market":ticker,"to":"{0} 00:00:00".format(today),"count":"1"}
+        #querystring = {"market":ticker,"to":"2021-03-17 00:00:00","count":"1"}
+        #print(querystring)
+        response = requests.request("GET", url, params=querystring)
+        #print(response.text)    
 
-            candle_time = []
-            open = []
-            high = []
-            low = []
-            close = []
-            price = []
-            volume = []
-            close_percent = []
-            high_percent = []
-            low_percent = []
+        results = response.text.split('},')
+        #print(results)
+        r = []
 
-            #df_today = pyupbit.get_ohlcv(ticker, interval="day", count=1)
-            #today_open = float(df_today['open'])
+        candle_time = []
+        open = []
+        high = []
+        low = []
+        close = []
+        price = []
+        volume = []
+        close_percent = []
+        high_percent = []
+        low_percent = []
 
-            save = False
-            for result in reversed(results):
-                result=result.replace('[','')
-                result=result.replace('{','')
-                result=result.replace(']','')
-                result=result.replace('}','')
-                
-                #날짜
-                date = result[result.find('","opening_price') - (result.find('","opening_price') - result.find('candle_date_time_kst":"') - len('candle_date_time_kst":"')):result.find('","opening_price')]
-                candle_time.append(date)
-                #print(time)
+        #df_today = pyupbit.get_ohlcv(ticker, interval="day", count=1)
+        #today_open = float(df_today['open'])
 
-                #시가
-                open_price = result[result.find('0000,"high_price"') - (result.find('0000,"high_price"') - result.find('"opening_price":') - len('"opening_price":')):result.find('0000,"high_price"')]
-                open.append(open_price)
-                #print(open_price) 
-
-                #고가
-                high_price = result[result.find('0000,"low_price"') - (result.find('0000,"low_price"') - result.find('"high_price":') - len('"high_price":')):result.find('0000,"low_price"')]
-                high.append(high_price)
-                #high_percent_candle = (float(high_price) - today_open) / today_open * 100
-                #high_percent.append(high_percent_candle)
-
-                #print(high_price)
-                #저가
-                low_price = result[result.find('0000,"trade_price":') - (result.find('0000,"trade_price":') - result.find('"low_price":') - len('"low_price":')):result.find('0000,"trade_price":')]
-                low.append(low_price)
-                #low_percent_candle = (float(low_price) - today_open) / today_open * 100
-                #low_percent.append(low_percent_candle)
-                #print(low_price)
-                #종가
-                close_price = result[result.find('0000,"timestamp":') - (result.find('0000,"timestamp":') - result.find(',"trade_price":') - len(',"trade_price":')):result.find('0000,"timestamp":')]
-                close.append(close_price)
-                #print(close_price)
-                #close_percent_candle = (float(close_price) - today_open) / today_open * 100
-                #close_percent.append(close_percent_candle)
-                #거래대금
-                trade_price = result[result.find(',"candle_acc_trade_volume":') - (result.find(',"candle_acc_trade_volume":') - result.find('"candle_acc_trade_price":') - len('"candle_acc_trade_price":')):result.find(',"candle_acc_trade_volume":')]
-                price.append(trade_price)    
-                ##print(trade_price)
-                #거래량
-                trade_volume = result[result.find(',"prev_closing_price"') - (result.find(',"prev_closing_price"') - result.find('"candle_acc_trade_volume":') - len('"candle_acc_trade_volume":')):result.find(',"prev_closing_price"')]
-                volume.append(trade_volume)
-                ##print(trade_volume)
-                
-                # 차이/시가 *100
-                #등락률
-
-                #if float(high_price) >= today_open*1.07:
-                #    save = True
-
-
-            data = {'시가' : open,
-                    '고가' : high,
-                    '저가' : low,
-                    '종가' : close,
-                    '거래대금' : price,
-                    '거래량' : volume,
-                    }
+        save = False
+        for result in reversed(results):
+            result=result.replace('[','')
+            result=result.replace('{','')
+            result=result.replace(']','')
+            result=result.replace('}','')
             
-            df = DataFrame(data, index=candle_time)
-            df['range'] = (float(df['고가']) - float(df['저가'])) * 0.5
+            #날짜
+            date = result[result.find('","opening_price') - (result.find('","opening_price') - result.find('candle_date_time_kst":"') - len('candle_date_time_kst":"')):result.find('","opening_price')]
+            candle_time.append(date)
+            #print(time)
+
+            #시가
+            open_price = result[result.find('0000,"high_price"') - (result.find('0000,"high_price"') - result.find('"opening_price":') - len('"opening_price":')):result.find('0000,"high_price"')]
+            open.append(open_price)
+            #print(open_price) 
+
+            #고가
+            high_price = result[result.find('0000,"low_price"') - (result.find('0000,"low_price"') - result.find('"high_price":') - len('"high_price":')):result.find('0000,"low_price"')]
+            high.append(high_price)
+            #high_percent_candle = (float(high_price) - today_open) / today_open * 100
+            #high_percent.append(high_percent_candle)
+
+            #print(high_price)
+            #저가
+            low_price = result[result.find('0000,"trade_price":') - (result.find('0000,"trade_price":') - result.find('"low_price":') - len('"low_price":')):result.find('0000,"trade_price":')]
+            low.append(low_price)
+            #low_percent_candle = (float(low_price) - today_open) / today_open * 100
+            #low_percent.append(low_percent_candle)
+            #print(low_price)
+            #종가
+            close_price = result[result.find('0000,"timestamp":') - (result.find('0000,"timestamp":') - result.find(',"trade_price":') - len(',"trade_price":')):result.find('0000,"timestamp":')]
+            close.append(close_price)
+            #print(close_price)
+            #close_percent_candle = (float(close_price) - today_open) / today_open * 100
+            #close_percent.append(close_percent_candle)
+            #거래대금
+            trade_price = result[result.find(',"candle_acc_trade_volume":') - (result.find(',"candle_acc_trade_volume":') - result.find('"candle_acc_trade_price":') - len('"candle_acc_trade_price":')):result.find(',"candle_acc_trade_volume":')]
+            price.append(trade_price)    
+            ##print(trade_price)
+            #거래량
+            trade_volume = result[result.find(',"prev_closing_price"') - (result.find(',"prev_closing_price"') - result.find('"candle_acc_trade_volume":') - len('"candle_acc_trade_volume":')):result.find(',"prev_closing_price"')]
+            volume.append(trade_volume)
+            ##print(trade_volume)
             
-            target_price = round(float(df['종가']) + float(df['range']), 1)
-            # 목표가가 100 이상이면 정수형으로 변환
-            if target_price >= float(100):
-                target_price = int(target_price)
-            df['target'] = target_price
+            # 차이/시가 *100
+            #등락률
 
-            # txt파일에 저장
-            log_list = [ticker, df]
-            save_log(log_list)
+            #if float(high_price) >= today_open*1.07:
+            #    save = True
 
-            # 텔레그램으로 로그 전송
-            t = threading.Thread(target=send_telgm_log, args=(log_list,)) # 스레드 생성
-            t.start()
 
-            '''
-            min_price = min(buy_price)
-            pr = float(data['거래대금'][0])
-            pr = int(pr)
-            if min_price < pr:
-                num = buy_price.index(min_price)
-                buy_price[num] = pr
-                buy_ticker[num] = ticker
-                ticker_data[num] = df
-            print("buy_price", buy_price)
-            '''
-            print("buy_ticker", buy_ticker)
-            buy_ticker.append(ticker)
-            ticker_data.append(df)
-            time.sleep(0.1)
+        data = {'시가' : open,
+                '고가' : high,
+                '저가' : low,
+                '종가' : close,
+                '거래대금' : price,
+                '거래량' : volume,
+                }
+        
+        df = DataFrame(data, index=candle_time)
+        df['range'] = (float(df['고가']) - float(df['저가'])) * 0.5
+        
+        target_price = round(float(df['종가']) + float(df['range']), 1)
+        # 목표가가 100 이상이면 정수형으로 변환
+        if target_price >= float(100):
+            target_price = int(target_price)
+        df['target'] = target_price
+
+        # txt파일에 저장
+        #log_list = [ticker, df]
+        #save_log(log_list)
+
+        # 텔레그램으로 로그 전송
+        #t = threading.Thread(target=send_telgm_log, args=(log_list,)) # 스레드 생성
+        #t.start()
+
+        '''
+        min_price = min(buy_price)
+        pr = float(data['거래대금'][0])
+        pr = int(pr)
+        if min_price < pr:
+            num = buy_price.index(min_price)
+            buy_price[num] = pr
+            buy_ticker[num] = ticker
+            ticker_data[num] = df
+        print("buy_price", buy_price)
+        '''
+        print("buy_ticker", buy_ticker)
+        buy_ticker.append(ticker)
+        ticker_data.append(df)
+        time.sleep(0.2)
 
         #print(buy_ticker, buy_price)
-    buy_list = [buy_ticker, ticker_data]
+
+
+    
+    buy_list = [buy_ticker, ticker_data, True]
+    
+
+    if now.hour >= 15:
+        data_date = str(now - timedelta(days=2))[:10]
+    else:
+        data_date = str(now - timedelta(days=1))[:10]
+
+    # 오늘 날짜 -1 이 저장된 로그 날짜와 같으면 구매완료 목록 초기화 안함
+    if data_date == read_log():
+        buy_list[2] = False
+
 
     # 거래대금 상위 종목 저장 및 텔레그램 메시지 전송
     t2 = threading.Thread(target=save_buy_list, args=(buy_list,)) # 스레드 생성
@@ -161,16 +177,23 @@ def get_top_price():
 
     print("===========종목 업데이트 완료===========\n\n\n\n\n")
     send_message("감시 시작",)
+
+    
+
     return buy_list
 
+def read_log():
+    with open("day_candle_log.txt", "r", encoding='utf8') as f:
+        lines = f.readlines()
+    return lines[-3][:10]
 
 def save_buy_list(get_list):
     # "a"는 현재내용에 추가 "w"는 새로 작성
-    with open("daily_top_list.txt", "a", encoding='utf8') as f:
+    with open("day_candle_log.txt", "a", encoding='utf8') as f:
         for cnt in range(count):
             #print(get_list[1][cnt], get_list[0][cnt], get_list[2][cnt])
-            f.write(str(get_list[1][cnt]) + str(get_list[2][cnt]) + "\n")
-            text = "종목 업데이트\n" + get_list[1][cnt] + "\n날짜 : " + str(get_list[2][cnt].index[0]) + "\n거래대금 : " + str(get_list[0][cnt]) + "\n시가 : {0}\n고가 : {1}\n저가 : {2}\n종가 : {3}\nRANGE : {4}\n목표가 : {5} ".format(float(get_list[2][cnt]['시가']),float(get_list[2][cnt]['고가']),float(get_list[2][cnt]['저가']),float(get_list[2][cnt]['종가']),float(get_list[2][cnt]['range']),float(get_list[2][cnt]['target']))
+            f.write(str(get_list[0][cnt]) + str(get_list[1][cnt]) + "\n")
+            text = "종목 업데이트\n" + get_list[0][cnt] + "\n날짜 : " + str(get_list[1][cnt].index[0]) +  "\n시가 : {0}\n고가 : {1}\n저가 : {2}\n종가 : {3}\nRANGE : {4}\n목표가 : {5} ".format(float(get_list[1][cnt]['시가']),float(get_list[1][cnt]['고가']),float(get_list[1][cnt]['저가']),float(get_list[1][cnt]['종가']),float(get_list[1][cnt]['range']),float(get_list[1][cnt]['target']))
             #print(text)
             send_message(text)
 
@@ -178,12 +201,12 @@ def save_buy_list(get_list):
 def save_log(get_list):    
     # "a"는 현재내용에 추가 "w"는 새로 작성
     with open("day_candle_log.txt", "a", encoding='utf8') as f:
-        f.write(get_list[0] + str(get_list[1]) + "\n")
+        f.write(str(get_list[0]) + str(get_list[1]) + "\n")
     
     
 def send_telgm_log(get_list):
     
-    text = get_list[0] + "\n날짜 : " + str(get_list[1].index[0]) + "\n시가 : {0}\n고가 : {1}\n저가 : {2}\n종가 : {3}\nRANGE : {4}\n목표가 : {5} ".format(float(get_list[1]['시가']),float(get_list[1]['고가']),float(get_list[1]['저가']),float(get_list[1]['종가']),float(get_list[1]['range']),float(get_list[1]['target']))
+    text = "\n날짜 : " + str(get_list[0].index[0]) + "\n시가 : {0}\n고가 : {1}\n저가 : {2}\n종가 : {3}\nRANGE : {4}\n목표가 : {5} ".format(float(get_list[0]['시가']),float(get_list[0]['고가']),float(get_list[0]['저가']),float(get_list[0]['종가']),float(get_list[0]['range']),float(get_list[0]['target']))
     #print(text)
     send_log(text)
 

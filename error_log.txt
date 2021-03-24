@@ -27172,3 +27172,6 @@
 2021-03-23 23:57:12.482214code = 1006 (connection closed abnormally [internal]), no reason
 2021-03-23 23:57:12.969419code = 1006 (connection closed abnormally [internal]), no reason
 2021-03-23 23:57:13.505189code = 1006 (connection closed abnormally [internal]), no reason
+2021-03-24 10:39:24.108026unsupported operand type(s) for +: 'dict' and 'str'
+2021-03-24 10:50:05.053033unsupported operand type(s) for +: 'dict' and 'str'
+2021-03-24 10:50:12.029879unsupported operand type(s) for +: 'dict' and 'str'

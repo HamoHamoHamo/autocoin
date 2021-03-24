@@ -11,7 +11,7 @@ log_token = lines[5].strip()
 log_chat_id = lines[6].strip()
 log_bot = telegram.Bot(token = log_token)
 
-
+f.close()
 
 
 def send_message(text):

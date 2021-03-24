@@ -22,7 +22,7 @@ access = lines[0].strip()
 secret = lines[1].strip()
 upbit = pyupbit.Upbit(access,secret)
 
-async def do_async_loop(ticker, target):
+async def do_async_loop(ticker, target, reset):
     #list_coin = []
     #list_coin.append(ticker)
     update_time = '00:01'
@@ -30,14 +30,37 @@ async def do_async_loop(ticker, target):
     break_check = False
     connect_check = False
 
-    money = 100000
-    
+    #money = 100000
+    money = 10000
     #count = int(money/target)
-    # buy_check['티커'] = True 로 초기값 넣어주기
+
     buy_check = {}
-    for i in ticker:
-        buy_check[i] = True
-    
+    # buy_check 저장된 값 불러오기
+    if reset == False:
+        read_check = []
+        with open("buy_check.txt", "r", encoding='utf8') as f:
+            lines = f.readlines()
+            line = lines[0].split(":")
+            
+        for i in range(len(line)):
+            if "True" in line[i]:
+                read_check.append(True)
+            if "False" in line[i]:
+                read_check.append(False)
+        for y in range(len(ticker)):
+            buy_check[ticker[y]] = read_check[y]
+        print("불러옴")
+    else:
+        # buy_check['티커'] = True 로 초기값 넣어주기
+        for i in ticker:
+            buy_check[i] = True
+        with open("buy_check.txt", "w", encoding='utf8') as f:
+            text = str(buy_check) + "\n"
+            f.write(text)
+
+    text = "구매 완료 목록 확인 " + str(buy_check)
+    send_message(text,)
+    print(text)
 
     async with websockets.connect(UPBIT_WEB_SOCKET_ADD, ping_interval=None) as websocket:
         # ss format ex : '[{"ticket":"test1243563456"},{"type":"trade","codes":["KRW-BTC", "KRW-ETH"]}]'
@@ -74,6 +97,10 @@ async def do_async_loop(ticker, target):
                         f.write(text)
 
                     buy_check[now_ticker] = False
+                    with open("buy_check.txt", "w", encoding='utf8') as f:
+                        text = str(buy_check) + "\n"
+                        f.write(text)
+
                     # ret type은 dict
                     
                     text= "주문 완료\n종류 : {0}\n매수가격 : {1}\n시간 : {2}\n수량 : {3}".format(str(ret['market']), float(ret['price']), str(ret['created_at']), float(ret['volume']))
@@ -172,7 +199,7 @@ async def sell_all():
 async def trading_main(trading_coins, run_check, target):
     while(run_check):
         print("================================START================================")
-        loop1 = do_async_loop(trading_coins[0], target)
+        loop1 = do_async_loop(trading_coins[0], target, trading_coins[2])
         #loop2 = do_async_loop(trading_coins[1][1], target[1])
         #loop3 = do_async_loop(trading_coins[1][2], target[2])
         #loop4 = do_async_loop(trading_coins[1][3], target[3])
@@ -204,14 +231,10 @@ async def trading_main(trading_coins, run_check, target):
 
 def send_target_message(ticker, price, check):
 
-    text = ticker + "\n현재가 : " + str(price) + "\n" + str(check)
+    text = str(ticker) + "\n현재가 : " + str(price) + "\n" + str(check)
     send_message(text)
     print("메시지 전송", text)
 
-def send_buy_message(ret):
-    text = ret
-    send_message(text)
-    print(text)
 
 def testtest(trading_coins):
     while(1):
