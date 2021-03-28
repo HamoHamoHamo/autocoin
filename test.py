@@ -10,7 +10,7 @@ import websockets
 import asyncio
 import threading
 from day_candle import get_top_price
-from telegrambot import send_message
+from telegrambot import send_message, send_log
 
 UPBIT_WEB_SOCKET_ADD = 'wss://api.upbit.com/websocket/v1'
 
@@ -25,13 +25,14 @@ upbit = pyupbit.Upbit(access,secret)
 async def do_async_loop(ticker, target, reset):
     #list_coin = []
     #list_coin.append(ticker)
-    update_time = '00:01'
+    update_time = '00:00'
     
     break_check = False
     connect_check = False
 
     #money = 100000
-    money = 10000
+    money = 15000
+    #money=0
     #count = int(money/target)
 
     buy_check = {}
@@ -74,14 +75,16 @@ async def do_async_loop(ticker, target, reset):
                 data = json.loads(my_json)
                 now_ticker = data['code']
 
-                if str(datetime.now())[15:16] == '0':
+                # 00초일때 연결확인용으로 프린트
+                if str(datetime.now())[17:19] == '00':
                     print(data['code'], data['trade_time'], data['trade_price'])
                 
+                # 30분마다 연결확인 텔레그램 메시지 보내기
                 if str(datetime.now())[14:16] != '30':
                     connect_check = True
                 if str(datetime.now())[14:16] == '30' and connect_check == True:
                     text = "연결확인\n" + str(buy_check)
-                    checking_message = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
+                    checking_message = threading.Thread(target=send_log, args=(text,)) # 스레드 생성
                     checking_message.start()
                     connect_check = False
                 
@@ -135,7 +138,8 @@ async def do_async_loop(ticker, target, reset):
 
 async def sell_all():
     # 우리나라 시간은  +9시간 해야됨
-    sell_time = '00:00'
+    sell_time = '23:59'
+    
     sell_check = True
     percent = 1
 
@@ -150,9 +154,10 @@ async def sell_all():
             sell_check = False
             balances = upbit.get_balances()
 
-            send_message("===============매도 전 잔고===============",)
+            text = str(datetime.now()) + "\n===============매도 전 잔고===============\n"
+            send_message(text,)
+            print(text)
             with open("sell_log.txt", "a", encoding='utf8') as f:
-                text = str(datetime.now()) + "===============매도 전 잔고===============\n"
                 f.write(text)
 
             for i in balances:
@@ -160,16 +165,20 @@ async def sell_all():
                 with open("sell_log.txt", "a", encoding='utf8') as f:
                     text = str(datetime.now()) + str(i) + "\n"
                     f.write(text)
-
-                text="종류 : " + i['currency'] + "\n주문가능금액/수량 : " + i['balance'] + "\n주문 중 묶여있는 금액/수량 : " + i['locked']+ "\n평단가 : " + i['avg_buy_price'] + "\n금액 : " + int(i['avg_buy_price'] * i['balance'])
-                t_sell_log = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
-                t_sell_log.start()
-                t_sell_log.join()
+                
                 if i['currency'] == "KRW":
+                    send_message(text,)
                     continue
                 try:
                     ret = upbit.sell_market_order("KRW-{}".format(i['currency']), float(i['balance'])*percent)
-                    print(ret)
+                    price = float(i['avg_buy_price']) * float(i['balance'])
+                    text="종류 : " + i['currency'] + "\n주문가능금액/수량 : " + i['balance'] + "\n주문 중 묶여있는 금액/수량 : " + i['locked']+ "\n평단가 : " + i['avg_buy_price'] + "\n금액 : " + str(price)
+                    t_sell_log = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
+                    t_sell_log.start()
+                    t_sell_log.join()
+                    print(text)
+
+                    #print(ret)
                     print("sell", i['currency'])
                 except Exception as e:
                     print(i['currency'], "에러발생")
@@ -187,9 +196,10 @@ async def sell_all():
                     text = str(datetime.now()) + str(i) + "\n"
                     f.write(text)
 
-                text="종류 : " + i['currency'] + "\n주문가능금액/수량 : " + i['balance'] + "\n주문 중 묶여있는 금액/수량 : " + i['locked']+ "\n평단가 : " + i['avg_buy_price']
+                text="종류 : " + i['currency'] + "\n주문가능금액/수량 : " + i['balance'] + "\n주문 중 묶여있는 금액/수량 : " + i['locked']
                 t2_sell_log = threading.Thread(target=send_message, args=(text,)) # 스레드 생성
                 t2_sell_log.start()
+                t2_sell_log.join()
             print("SELL END")
             break
     return ("SELL END")
