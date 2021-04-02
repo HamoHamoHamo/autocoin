@@ -134,7 +134,7 @@ async def do_async_loop(ticker, target, reset):
                 break_check = False
                 break
             
-    return ticker + "END"
+    return "END"
 
 async def sell_all():
     # 우리나라 시간은  +9시간 해야됨
