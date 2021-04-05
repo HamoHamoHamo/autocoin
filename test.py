@@ -1,6 +1,7 @@
 import pyupbit
 import os
 import time
+import sys
 from datetime import timedelta, datetime, date
 import requests
 import time
@@ -25,7 +26,7 @@ upbit = pyupbit.Upbit(access,secret)
 async def do_async_loop(ticker, target, reset):
     #list_coin = []
     #list_coin.append(ticker)
-    update_time = '00:00'
+    update_time = '00:01'
     
     break_check = False
     connect_check = False
@@ -125,13 +126,18 @@ async def do_async_loop(ticker, target, reset):
                     text = str(datetime.now()) + str(e) + "\n"
                     f.write(text)
 
+                if str(e) == "code = 1006 (connection closed abnormally [internal]), no reason":
+                    print("프로그램 종료")
+                    sys.exit("프로그램 종료")
 
             # 지정된 시간이 되면 멈추고 종목 업데이트
             if str(datetime.now())[11:16] != update_time:
                 break_check = True
             if str(datetime.now())[11:16] == update_time and break_check == True:
                 print("==============BREAK==============")
+                print(datetime.now())
                 break_check = False
+                
                 break
             
     return "END"
@@ -207,36 +213,37 @@ async def sell_all():
 
 
 async def trading_main(trading_coins, run_check, target):
-    while(run_check):
-        print("================================START================================")
-        loop1 = do_async_loop(trading_coins[0], target, trading_coins[2])
-        #loop2 = do_async_loop(trading_coins[1][1], target[1])
-        #loop3 = do_async_loop(trading_coins[1][2], target[2])
-        #loop4 = do_async_loop(trading_coins[1][3], target[3])
-        #loop5 = do_async_loop(trading_coins[1][4], target[4])
-        #loop6 = do_async_loop(trading_coins[1][5], target[5])
-        #loop7 = do_async_loop(trading_coins[1][6], target[6])
-        #loop8 = do_async_loop(trading_coins[1][7], target[7])
-        #loop9 = do_async_loop(trading_coins[1][8], target[8])
-        #loop10 = do_async_loop(trading_coins[1][9], target[9])
-        sell = sell_all()
-        stop_check = await asyncio.gather(
-            sell,
-            loop1,
-            #loop2,
-            #loop3,
-            #loop4,
-            #loop5,
-            #loop6,
-            #loop7,
-            #loop8,
-           # loop9,
-           # loop10,
-        )
-        time.sleep(1)
-        print(stop_check)
-        print("===========종목 업데이트===========")
-        trading_coins = get_top_price()
+    #while(run_check):
+    print("================================START================================")
+    loop1 = do_async_loop(trading_coins[0], target, trading_coins[2])
+    #loop2 = do_async_loop(trading_coins[1][1], target[1])
+    #loop3 = do_async_loop(trading_coins[1][2], target[2])
+    #loop4 = do_async_loop(trading_coins[1][3], target[3])
+    #loop5 = do_async_loop(trading_coins[1][4], target[4])
+    #loop6 = do_async_loop(trading_coins[1][5], target[5])
+    #loop7 = do_async_loop(trading_coins[1][6], target[6])
+    #loop8 = do_async_loop(trading_coins[1][7], target[7])
+    #loop9 = do_async_loop(trading_coins[1][8], target[8])
+    #loop10 = do_async_loop(trading_coins[1][9], target[9])
+    sell = sell_all()
+    stop_check = await asyncio.gather(
+        sell,
+        loop1,
+        #loop2,
+        #loop3,
+        #loop4,
+        #loop5,
+        #loop6,
+        #loop7,
+        #loop8,
+        # loop9,
+        # loop10,
+    )
+    time.sleep(1)
+    print(stop_check)
+    print("===========09시 종목 업데이트===========")
+    sys.exit("프로그램 종료")
+        
 
 
 def send_target_message(ticker, price, check):

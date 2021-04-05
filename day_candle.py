@@ -27,6 +27,9 @@ def get_top_price():
     now=datetime.now()
     
     today = str(now)[:10]
+    text = "오늘날짜" + today
+    send_message(text,)
+    print("현재 시간", now)
 
     # gcp에서 시간이 우리나라 시간 -9시간 이라서 필요없음
     '''
