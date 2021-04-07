@@ -125,19 +125,21 @@ def get_top_price():
                 }
         
         df = DataFrame(data, index=candle_time)
-        df['range'] = (float(df['고가']) - float(df['저가'])) * 0.5
+        df['range'] = (float(df['고가']) - float(df['저가'])) * 0.032
         
         target_price = round(float(df['종가']) + float(df['range']), 1)
         # 목표가가 100 이상이면 정수형으로 변환
         if target_price >= float(100):
             target_price = int(target_price)
         
-        if target_price >= float(100000) and str(target_price)[-3] != "0":
+        if target_price >= float(1000000) and str(target_price)[-3] != "0":
             target_price = int(str(target_price)[:-3] + "000")         
         elif target_price >= float(100000) and str(target_price)[-2] != "0":
             target_price = int(str(target_price)[:-2] + "00")
         elif target_price >= float(10000) and str(target_price)[-1] != "0":
-            target_price = int(str(target_price)[:-1] + "0")         
+            target_price = int(str(target_price)[:-1] + "0")
+        elif target_price >= float(1000) and str(target_price)[-1] != "0":
+            target_price = int(str(target_price)[:-1] + "5")             
         
 
         df['target'] = target_price

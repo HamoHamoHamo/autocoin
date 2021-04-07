@@ -31,8 +31,8 @@ async def do_async_loop(ticker, target, reset):
     break_check = False
     connect_check = False
 
-    #money = 100000
-    money = 15000
+    money = 10000
+    #money = 15000
     #money=0
     #count = int(money/target)
 
