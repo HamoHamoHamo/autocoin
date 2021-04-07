@@ -26,7 +26,7 @@ upbit = pyupbit.Upbit(access,secret)
 async def do_async_loop(ticker, target, reset):
     #list_coin = []
     #list_coin.append(ticker)
-    update_time = '00:01'
+    update_time = '00:00'
     
     break_check = False
     connect_check = False

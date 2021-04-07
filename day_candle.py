@@ -132,8 +132,13 @@ def get_top_price():
         if target_price >= float(100):
             target_price = int(target_price)
         
-        if target_price >= float(10000) and str(target_price)[-1] != "0":
+        if target_price >= float(100000) and str(target_price)[-3] != "0":
+            target_price = int(str(target_price)[:-3] + "000")         
+        elif target_price >= float(100000) and str(target_price)[-2] != "0":
+            target_price = int(str(target_price)[:-2] + "00")
+        elif target_price >= float(10000) and str(target_price)[-1] != "0":
             target_price = int(str(target_price)[:-1] + "0")         
+        
 
         df['target'] = target_price
 
